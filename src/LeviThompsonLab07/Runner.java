@@ -1,5 +1,8 @@
+package LeviThompsonLab07;
 
-import explorationsoflambdasandgenerics.Utils;
+
+import LeviThompsonLab07.Utils;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -8,7 +11,7 @@ import explorationsoflambdasandgenerics.Utils;
  */
 /**
  *
- * @author Paul
+ * @author levi.thompson
  */
 public class Runner {
 
@@ -18,8 +21,10 @@ public class Runner {
     public static void main(String[] args) {
         // TODO code application logic here
         Utils.modifyIntegerXTimesTester();
-        Utils.testInvolutence();
+//        Utils.testInvolutence();
 
+        
+       
     }
 
 }

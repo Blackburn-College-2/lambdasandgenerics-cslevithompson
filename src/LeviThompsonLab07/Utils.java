@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package explorationsoflambdasandgenerics;
+package LeviThompsonLab07;
+
 
 import java.util.ArrayList;
 import java.util.Random;
-
+import LeviThompsonLab07.IntegerModifier;
+        
 /**
  *
- * @author Paul
+ * @author levi.thompson
  */
 public class Utils {
 
@@ -19,14 +21,35 @@ public class Utils {
     should take 2 parameters, (1) an instance of any type and (2) an int of the
     number of times to repeat said element in an arraylist.
      */
-   
+   public static <T> ArrayList<T> repeat(T input, int numberOfRepeats) {
+       //creates an arraylist that uses a generic type
+       ArrayList<T> ls = new ArrayList();
+       
+       /*
+        a for loop to put the input into the arraylist however many times 
+        necessary
+       */
+       for (int i = 0; i < numberOfRepeats; i++) {
+           ls.add(input);
+       }
+       
+       return ls;
+   }
 
     /*
     2. Write a function called indexedOutput that takes an ArrayList of any type
     and RETURNS a two line string where the first line is the index of each
     element.
      */
-   
+     
+    public static <T> String indexedOutput(ArrayList<T> ls) {
+         int i = 0;
+         for (;i < ls.size(); i++) {
+             System.out.println("The index is: " + i);
+             System.out.println("The element is: " + ls.get(i));
+         }
+         return "";
+     }
 
     /*
     3. A few steps for this one. Similar to the modify integer functionality we
@@ -45,7 +68,28 @@ public class Utils {
     Here is one you can use:
          assert modifyIntegerXTimes(x -> x + 1, 5, -1) == 4 : "+1 modify test failed";
      */
-  
+     
+     public static int modifyIntegerXTimes(IntegerModifier modify, 
+             Integer numberOfTimes, Integer startingNumber){
+         
+         Integer finalResult = 0;
+         for (int i = 0; i < numberOfTimes; i++) {
+             numberOfTimes = modify.modify(startingNumber);
+             
+         }
+         
+         return numberOfTimes;
+     }
+     
+     public static void modifyIntegerXTimesTester() {
+         assert modifyIntegerXTimes(x -> x + 1, 5, -1) == 4 : "+1 modify test failed"; 
+         assert modifyIntegerXTimes(x -> x - 1, 10, 10) == 0 : "-1 modify test failed";
+         assert modifyIntegerXTimes(x -> x * 2, 5, 1) == 32 : "*2 modify test failed";
+         assert modifyIntegerXTimes(x -> x + 5, 3, 1) == 16 : "+5 modify test failed";
+         assert modifyIntegerXTimes(x -> x - 5, 3, 25) == 10 : "-5 modify test failed";
+     }
+     
+     
 
     /*
     4. Write a function called checkInvolutence
