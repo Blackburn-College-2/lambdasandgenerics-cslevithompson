@@ -1,7 +1,7 @@
 package LeviThompsonLab07;
 
-
 import LeviThompsonLab07.Utils;
+import java.util.ArrayList;
 
 
 /*
@@ -20,11 +20,23 @@ public class Runner {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println(Utils.repeat((int) 5, 5));
+
+        ArrayList<Integer> ls = new ArrayList();
+        ls.add(5);
+        ls.add(10);
+        ls.add(15);
+        Utils.indexedOutput(ls);
+
         Utils.modifyIntegerXTimesTester();
 //        Utils.testInvolutence();
 
-        
-       
     }
 
 }
+
+
+/*
+    Estimated time: 5 hours
+    Time Used: 7 hours
+*/

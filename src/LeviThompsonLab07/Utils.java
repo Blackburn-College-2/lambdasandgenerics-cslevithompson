@@ -21,13 +21,15 @@ public class Utils {
     should take 2 parameters, (1) an instance of any type and (2) an int of the
     number of times to repeat said element in an arraylist.
      */
-   public static <T> ArrayList<T> repeat(T input, int numberOfRepeats) {
+   
+    public static <T> ArrayList<T> repeat(T input, int numberOfRepeats) {
        //creates an arraylist that uses a generic type
        ArrayList<T> ls = new ArrayList();
        
        /*
-        a for loop to put the input into the arraylist however many times 
-        necessary
+       a for loop to put the input into the arraylist however many times 
+       necessary; in other words, until i is no longer less than 
+       numberOfRepeats
        */
        for (int i = 0; i < numberOfRepeats; i++) {
            ls.add(input);
@@ -43,8 +45,11 @@ public class Utils {
      */
      
     public static <T> String indexedOutput(ArrayList<T> ls) {
-         int i = 0;
-         for (;i < ls.size(); i++) {
+        /*
+        a for loop that prints two strings: the first being the index, which
+        is i, and the second string being the element at the index.
+        */ 
+        for (int i = 0;i < ls.size(); i++) {
              System.out.println("The index is: " + i);
              System.out.println("The element is: " + ls.get(i));
          }
@@ -72,21 +77,37 @@ public class Utils {
      public static int modifyIntegerXTimes(IntegerModifier modify, 
              Integer numberOfTimes, Integer startingNumber){
          
+         /*
+         creating an integer object that will store 0
+         */
          Integer finalResult = 0;
+         /*
+         a for loop that uses modify to do a function for however many times is
+         is needed
+         */
          for (int i = 0; i < numberOfTimes; i++) {
-             numberOfTimes = modify.modify(startingNumber);
+             finalResult = modify.modify(startingNumber);
              
          }
          
-         return numberOfTimes;
+         return finalResult;
      }
      
+
      public static void modifyIntegerXTimesTester() {
-         assert modifyIntegerXTimes(x -> x + 1, 5, -1) == 4 : "+1 modify test failed"; 
-         assert modifyIntegerXTimes(x -> x - 1, 10, 10) == 0 : "-1 modify test failed";
-         assert modifyIntegerXTimes(x -> x * 2, 5, 1) == 32 : "*2 modify test failed";
-         assert modifyIntegerXTimes(x -> x + 5, 3, 1) == 16 : "+5 modify test failed";
-         assert modifyIntegerXTimes(x -> x - 5, 3, 25) == 10 : "-5 modify test failed";
+         /*
+         group of assert statements that check if math is true or false
+         */
+         assert modifyIntegerXTimes(x -> x + 1, 5, -1) == 4 : "+1 modify "
+                 + "test failed"; 
+         assert modifyIntegerXTimes(x -> x - 1, 10, 10) == 0 : "-1 modify "
+                 + "test failed";
+         assert modifyIntegerXTimes(x -> x * 2, 5, 1) == 32 : "*2 modify "
+                 + "test failed";
+         assert modifyIntegerXTimes(x -> x + 5, 3, 1) == 16 : "+5 modify "
+                 + "test failed";
+         assert modifyIntegerXTimes(x -> x - 5, 3, 25) == 10 : "-5 modify "
+                 + "test failed";
      }
      
      

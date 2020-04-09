@@ -11,6 +11,11 @@ package LeviThompsonLab07;
  */
 public interface IntegerModifier {
     
+    /**
+     * a method that is initialized, but will be changed to modify Integers
+     * @param x
+     * @return Integer
+     */
     public Integer modify(Integer x);
     
 }
